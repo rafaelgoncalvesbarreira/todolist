@@ -8,6 +8,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ToDoList.Business.EntityFramework;
+using Microsoft.EntityFrameworkCore;
+using ToDoList.Business.Contract.Infra;
+using ToDoList.Business.Contract.Services;
+using ToDoList.Business.Contracts.Services;
 
 namespace ToDoList
 {
@@ -23,7 +28,11 @@ namespace ToDoList
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ToDoListDbContext>(opt => opt.UseSqlServer("DefaultConnection"));
             services.AddControllersWithViews();
+
+            services.AddScoped<IRepository,ToDoListDbContext>();
+            services.AddScoped<ITaskService, TaskService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
