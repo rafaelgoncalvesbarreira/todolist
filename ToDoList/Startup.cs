@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using ToDoList.Business.Contract.Infra;
 using ToDoList.Business.Contract.Services;
 using ToDoList.Business.Contracts.Services;
+using AutoMapper;
+using ToDoList.Mvc.Configurations;
 
 namespace ToDoList
 {
@@ -28,8 +30,10 @@ namespace ToDoList
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ToDoListDbContext>(opt => opt.UseSqlServer("DefaultConnection"));
+            services.AddDbContext<ToDoListDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+
+            services.AddAutoMapper(config => config.AddProfile<MapperProfile>(),typeof(Startup));
 
             services.AddScoped<IRepository,ToDoListDbContext>();
             services.AddScoped<ITaskService, TaskService>();

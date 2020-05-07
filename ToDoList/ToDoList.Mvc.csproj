@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -20,6 +20,10 @@
     <ProjectReference Include="..\ToDoList.Business\ToDoList.Business.csproj" />
     <ProjectReference Include="..\ToDoList.Bussiness.Contract\ToDoList.Bussiness.Contract.csproj" />
     <ProjectReference Include="..\ToDoList.Data\ToDoList.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\ModelConverter\" />
   </ItemGroup>
 
 

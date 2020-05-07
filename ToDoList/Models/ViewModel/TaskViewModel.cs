@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ToDoList.Model
+namespace ToDoList.Mvc.Models.ViewModel
 {
-    public class Task: Base
+    public class TaskViewModel
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public StatusEnum Status { get; set; }
     }
 }

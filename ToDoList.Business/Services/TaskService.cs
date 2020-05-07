@@ -9,7 +9,7 @@ namespace ToDoList.Business.Contracts.Services
 {
     public class TaskService: ITaskService
     {
-        private IRepository repository;
+        private readonly IRepository repository;
         public TaskService(IRepository _repository)
         {
             repository = _repository;

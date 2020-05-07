@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoList.Business.EntityFramework;
 
 namespace ToDoList.Business.EntityFramework.Migrations
 {
     [DbContext(typeof(ToDoListDbContext))]
-    partial class ToDoListDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200507184828_Task_Tite")]
+    partial class Task_Tite
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
