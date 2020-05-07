@@ -45,8 +45,8 @@ namespace ToDoList.Mvc.Controllers
         {
             try
             {
-                var model = new TaskViewModel();
-                if (await TryUpdateModelAsync<TaskViewModel>(model))
+                var model = new TaskToDoViewModel();
+                if (await TryUpdateModelAsync<TaskToDoViewModel>(model))
                 {
 
                     // var task = _mapper.Map<Task>

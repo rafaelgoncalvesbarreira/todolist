@@ -7,6 +7,6 @@ namespace ToDoList.Business.Contract.Services
 {
     public interface ITaskService
     {
-        public void Create(Task task);
+        public void Create(TaskToDo task);
     }
 }

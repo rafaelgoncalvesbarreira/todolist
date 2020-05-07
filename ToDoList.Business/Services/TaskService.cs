@@ -15,9 +15,9 @@ namespace ToDoList.Business.Contracts.Services
             repository = _repository;
         }
 
-        public void Create(Task task)
+        public void Create(TaskToDo task)
         {
-            repository.Add<Task>(task);
+            repository.Add<TaskToDo>(task);
             repository.Save();
         }
     }

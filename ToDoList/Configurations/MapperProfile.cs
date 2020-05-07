@@ -11,8 +11,8 @@ namespace ToDoList.Mvc.Configurations
     {
         public MapperProfile()
         {
-            CreateMap<Task, TaskViewModel>();
-            CreateMap<TaskViewModel, TaskViewModel>();
+            CreateMap<TaskToDo, TaskToDoViewModel>();
+            CreateMap<TaskToDoViewModel, TaskToDoViewModel>();
         }
     }
 }

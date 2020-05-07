@@ -18,7 +18,7 @@ namespace ToDoList.Business.EntityFramework.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ToDoList.Model.Task", b =>
+            modelBuilder.Entity("ToDoList.Model.TaskToDo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace ToDoList.Business.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("TaskToDos");
                 });
 #pragma warning restore 612, 618
         }
