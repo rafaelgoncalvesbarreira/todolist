@@ -28,7 +28,9 @@ namespace ToDoList.Mvc.Controllers
         // GET: Task
         public ActionResult Index()
         {
-            return View();
+            var tasks = _service.GetAll().ToList();
+            var models = _mapper.Map<IList<TaskToDo>,IList<TaskToDoViewModel>>(tasks);
+            return View(models);
         }
 
         // GET: Task/Details/5

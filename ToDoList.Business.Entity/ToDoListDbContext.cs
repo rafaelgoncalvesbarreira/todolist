@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using ToDoList.Business.Contract.Infra;
 using ToDoList.Model;
+using System.Linq;
 
 namespace ToDoList.Business.EntityFramework
 {
@@ -25,6 +26,11 @@ namespace ToDoList.Business.EntityFramework
         public void Save()
         {
             this.SaveChanges();
+        }
+
+        public IQueryable<TEntity> GetAll<TEntity>() where TEntity : class
+        {
+            return Set<TEntity>().AsNoTracking();
         }
         #endregion
     }
