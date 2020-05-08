@@ -8,30 +8,19 @@ using System.Linq;
 
 namespace ToDoList.Business.EntityFramework
 {
-    public class ToDoListDbContext : DbContext, IRepository
+    public class ToDoListDbContext : DbContext
     {
         public DbSet<TaskToDo> TaskToDos { get; set; }
 
+        public ToDoListDbContext():base()
+        {
+
+        }
         public ToDoListDbContext (DbContextOptions<ToDoListDbContext > options):base(options)
         {
             
         }
 
-        #region IRepository
-        void IRepository.Add<TEntity>(TEntity entity)
-        {
-            this.Add(entity);
-        }
-
-        public void Save()
-        {
-            this.SaveChanges();
-        }
-
-        public IQueryable<TEntity> GetAll<TEntity>() where TEntity : class
-        {
-            return Set<TEntity>().AsNoTracking();
-        }
-        #endregion
+        
     }
 }

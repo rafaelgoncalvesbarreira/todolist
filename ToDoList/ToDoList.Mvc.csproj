@@ -19,8 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToDoList.Business.Entity\ToDoList.Business.EntityFramework.csproj" />
-    <ProjectReference Include="..\ToDoList.Business\ToDoList.Business.csproj" />
-    <ProjectReference Include="..\ToDoList.Bussiness.Contract\ToDoList.Bussiness.Contract.csproj" />
     <ProjectReference Include="..\ToDoList.Data\ToDoList.Model.csproj" />
   </ItemGroup>
 

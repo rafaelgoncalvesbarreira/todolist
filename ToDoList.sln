@@ -4,16 +4,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Mvc", "ToDoList\ToDoList.Mvc.csproj", "{6163B17B-71D2-4526-BD6F-EF16CB95CDB9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E3FB6F83-EE10-4C3B-867F-5E4E4BA69166} = {E3FB6F83-EE10-4C3B-867F-5E4E4BA69166}
+		{3AE48ED9-5678-4FAA-A1DF-64A2F6C85E9F} = {3AE48ED9-5678-4FAA-A1DF-64A2F6C85E9F}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Business", "ToDoList.Business\ToDoList.Business.csproj", "{3AE48ED9-5678-4FAA-A1DF-64A2F6C85E9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Business", "ToDoList.Business\ToDoList.Business.csproj", "{3AE48ED9-5678-4FAA-A1DF-64A2F6C85E9F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E3FB6F83-EE10-4C3B-867F-5E4E4BA69166} = {E3FB6F83-EE10-4C3B-867F-5E4E4BA69166}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Business.EntityFramework", "ToDoList.Business.Entity\ToDoList.Business.EntityFramework.csproj", "{940A0F36-DBA8-4EBA-B510-450D3D954C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Business.EntityFramework", "ToDoList.Business.Entity\ToDoList.Business.EntityFramework.csproj", "{940A0F36-DBA8-4EBA-B510-450D3D954C25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E3FB6F83-EE10-4C3B-867F-5E4E4BA69166} = {E3FB6F83-EE10-4C3B-867F-5E4E4BA69166}
+		{3AE48ED9-5678-4FAA-A1DF-64A2F6C85E9F} = {3AE48ED9-5678-4FAA-A1DF-64A2F6C85E9F}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Business.Test", "ToDoList.Business.Test\ToDoList.Business.Test.csproj", "{E17B80B4-E8DA-446B-A69F-B82B34FD5D9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Business.Test", "ToDoList.Business.Test\ToDoList.Business.Test.csproj", "{E17B80B4-E8DA-446B-A69F-B82B34FD5D9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Model", "ToDoList.Data\ToDoList.Model.csproj", "{13CEBA98-9479-421C-AEA4-F9891479E0DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Model", "ToDoList.Data\ToDoList.Model.csproj", "{13CEBA98-9479-421C-AEA4-F9891479E0DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Bussiness.Contract", "ToDoList.Bussiness.Contract\ToDoList.Bussiness.Contract.csproj", "{E3FB6F83-EE10-4C3B-867F-5E4E4BA69166}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Business.Contract", "ToDoList.Business.Contract\ToDoList.Business.Contract.csproj", "{E3FB6F83-EE10-4C3B-867F-5E4E4BA69166}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

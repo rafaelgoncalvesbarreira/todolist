@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ToDoList.Business.Contract\ToDoList.Business.Contract.csproj" />
     <ProjectReference Include="..\ToDoList.Business\ToDoList.Business.csproj" />
-    <ProjectReference Include="..\ToDoList.Bussiness.Contract\ToDoList.Bussiness.Contract.csproj" />
     <ProjectReference Include="..\ToDoList.Data\ToDoList.Model.csproj" />
   </ItemGroup>
 
