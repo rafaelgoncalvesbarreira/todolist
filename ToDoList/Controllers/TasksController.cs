@@ -5,19 +5,24 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using ToDoList.Business.Contract.Services;
+using ToDoList.Model;
 using ToDoList.Mvc.Models.ViewModel;
 
 namespace ToDoList.Mvc.Controllers
 {
-    public class TaskController : Controller
+    public class TasksController : Controller
     {
         private readonly ITaskService _service;
         private readonly IMapper _mapper;
-        public TaskController(ITaskService service, IMapper mapper)
+        private readonly ILogger<TasksController> _logger;
+
+        public TasksController(ITaskService service, IMapper mapper, ILogger<TasksController> logger)
         {
             _service = service;
             _mapper = mapper;
+            _logger = logger;
         }
 
         // GET: Task
@@ -41,25 +46,27 @@ namespace ToDoList.Mvc.Controllers
         // POST: Task/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(IFormCollection collection)
+        //public async Task<ActionResult> Create(IFormCollection collection)
+        public ActionResult Create(TaskToDoViewModel model)
         {
             try
             {
-                var model = new TaskToDoViewModel();
-                if (await TryUpdateModelAsync<TaskToDoViewModel>(model))
-                {
+                //var model = new TaskToDoViewModel();
+                //if (await TryUpdateModelAsync<TaskToDoViewModel>(model))
+                //{
 
-                    // var task = _mapper.Map<Task>
-
+                    var task = _mapper.Map<TaskToDo>(model);
+                    _service.Create(task);
 
                     return RedirectToAction(nameof(Index));
 
-                }
+                //}
 
-                return View();
+                //return View();
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return View();
             }
         }
