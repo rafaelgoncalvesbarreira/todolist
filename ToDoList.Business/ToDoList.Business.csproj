@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ToDoList.Business.Contract\ToDoList.Business.Contract.csproj" />
     <ProjectReference Include="..\ToDoList.Data\ToDoList.Model.csproj" />
   </ItemGroup>
 
