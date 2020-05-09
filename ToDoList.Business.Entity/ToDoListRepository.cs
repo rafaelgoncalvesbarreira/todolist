@@ -3,47 +3,49 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using ToDoList.Business.Contract.Infra;
 
 namespace ToDoList.Business.EntityFramework
 {
     public class ToDoListRepository: IRepository
     {
-        private readonly ToDoListDbContext context;
-        public ToDoListRepository()
+        private readonly ToDoListDbContext _context;
+        public ToDoListRepository(ToDoListDbContext context)
         {
-            context = new ToDoListDbContext();
+            _context = context;
         }
         #region IRepository
         public void Add<TEntity>(TEntity entity)
         {
-            context.Add(entity);
+            _context.Add(entity);
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public IQueryable<TEntity> GetAll<TEntity>() where TEntity : class
         {
-            return context.Set<TEntity>().AsNoTracking();
+            return _context.Set<TEntity>().AsNoTracking();
         }
 
-        public void Update<TEntity>(TEntity entity)
+        public void Update<TEntity>(TEntity entity) where TEntity : class
         {
-            throw new NotImplementedException();
+            _context.Set<TEntity>().Update(entity);
         }
 
-        public void Delete<TEntity>(TEntity entity)
+        public void Delete<TEntity>(TEntity entity) where TEntity : class
         {
-            throw new NotImplementedException();
+            _context.Set<TEntity>().Remove(entity);
         }
 
-        public async void SaveAsync()
+        public async Task SaveAsync()
         {
-            context.SaveChangesAsync();
+             await _context.SaveChangesAsync();
         }
+
         #endregion
     }
 }

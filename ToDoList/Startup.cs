@@ -35,7 +35,7 @@ namespace ToDoList
 
             services.AddAutoMapper(config => config.AddProfile<MapperProfile>(),typeof(Startup));
 
-            services.AddScoped<IRepository,ToDoListDbContext>();
+            services.AddScoped<IRepository, ToDoListRepository>();
             services.AddScoped<ITaskService, TaskService>();
         }
 
