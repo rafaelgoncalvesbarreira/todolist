@@ -29,8 +29,14 @@ namespace ToDoList.Mvc.Controllers
         public ActionResult Index()
         {
             var tasks = _service.GetAll().ToList();
-            var models = _mapper.Map<IList<TaskToDo>,IList<TaskToDoViewModel>>(tasks);
-            return View(models);
+            var model = new ListTaskToDoViewModel
+            {
+                AwaitingTasks = _mapper.Map<IList<TaskToDo>, IList<TaskToDoViewModel>>(tasks.Where(t => t.Status == StatusEnum.Awaiting).ToList()).ToList(),
+                DoingTasks = _mapper.Map<IList<TaskToDo>, IList<TaskToDoViewModel>>(tasks.Where(t => t.Status == StatusEnum.Doing).ToList()).ToList(),
+                DoneTasks = _mapper.Map<IList<TaskToDo>, IList<TaskToDoViewModel>>(tasks.Where(t => t.Status == StatusEnum.Done).ToList()).ToList()
+            };
+
+            return View(model);
         }
 
         // GET: Task/Details/5

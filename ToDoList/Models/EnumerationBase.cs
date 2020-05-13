@@ -44,5 +44,10 @@ namespace ToDoList.Mvc.Models
         {
             return Id.CompareTo(((EnumerationBase)obj).Id);
         }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

@@ -69,3 +69,33 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/*
+--------------------------------------*/
+
+html, body{
+    height:100%;
+}
+
+.task-todo {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.task-todo h4 {
+    cursor: grab;
+}
+
+#awaiting-container .task-todo {
+    background-color: #ffff99;
+}
+
+#doing-container .task-todo {
+    background-color: #adebad;
+}
+
+#done-container .task-todo {
+    background-color: #ccd9ff;
+}
+

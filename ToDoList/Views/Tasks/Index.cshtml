@@ -1,41 +1,75 @@
-﻿@model IEnumerable<ToDoList.Mvc.Models.ViewModel.TaskToDoViewModel>
+﻿@model ToDoList.Mvc.Models.ViewModel.ListTaskToDoViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Tasks To Do";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<h1>All Tasks</h1>
+
+
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-md-4 border-left h-100" id="awaiting-container">
+            <h3>
+                <span>Awaiting</span>
+                <button class="btn float-right">
+                    +
+                </button>
+            </h3>
+            <!-- model
+    <div class="task-todo border rounded">
+        <h4 class="border-bottom">Title of the task</h4>
+        <p>
+            In brightest day, in blackest night,
+            No evil shall escape my sight.
+            Let those who worship evil's might
+            Beware my power--Green Lantern's light!
+        </p>
+    </div>-->
+        @foreach (var task in Model.AwaitingTasks)
+        {
+            <div class="task-todo border rounded">
+                <h4 class="border-bottom">@task.Title</h4>
+                <p>
+                    @task.Description
+                </p>
+            </div>
+        }
+        </div>
+        <div class="col-md-4 border-left" id="doing-container">
+            <h3>
+                <span>Doing</span>
+                <button class="btn float-right">
+                    +
+                </button>
+            </h3>
+        @foreach (var task in Model.DoingTasks)
+        {
+            <div class="task-todo border rounded">
+                <h4 class="border-bottom">@task.Title</h4>
+                <p>
+                    @task.Description
+                </p>
+            </div>
+        }
+        </div>
+        <div class="col-md-4 border-left" id="done-container">
+            <h3>
+                <span>Done</span>
+                <button class="btn float-right">
+                    +
+                </button>
+            </h3>
+        @foreach (var task in Model.DoneTasks)
+        {
+            <div class="task-todo border rounded">
+                <h4 class="border-bottom">@task.Title</h4>
+                <p>
+                    @task.Description
+                </p>
+            </div>
+        }
+        </div>
+    </div>
+</div>
