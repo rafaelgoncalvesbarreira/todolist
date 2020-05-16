@@ -29,8 +29,8 @@
     </div>-->
         @foreach (var task in Model.AwaitingTasks)
         {
-            <div class="task-todo border rounded">
-                <h4 class="border-bottom">@task.Title</h4>
+            <div class="task-todo border rounded" draggable="true" id="task-@task.Id">
+                <h4 class="border-bottom">#@task.Id - @task.Title</h4>
                 <p>
                     @task.Description
                 </p>
@@ -46,8 +46,8 @@
             </h3>
         @foreach (var task in Model.DoingTasks)
         {
-            <div class="task-todo border rounded">
-                <h4 class="border-bottom">@task.Title</h4>
+            <div class="task-todo border rounded" id="task-@task.Id">
+                <h4 class="border-bottom">#@task.Id - @task.Title</h4>
                 <p>
                     @task.Description
                 </p>
@@ -63,8 +63,8 @@
             </h3>
         @foreach (var task in Model.DoneTasks)
         {
-            <div class="task-todo border rounded">
-                <h4 class="border-bottom">@task.Title</h4>
+            <div class="task-todo border rounded" id="task-@task.Id">
+                <h4 class="border-bottom">#@task.Id - @task.Title</h4>
                 <p>
                     @task.Description
                 </p>
